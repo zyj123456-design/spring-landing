@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* ── Spacing System ── */
+  --section-padding-x: clamp(1.5rem, 8vw, 7rem);
+  --section-padding-y: clamp(4rem, 10vh, 8rem);
+  --card-gap: 1rem;
+  --content-max-width: 1280px;
+}
 
 @layer base {
   * {
@@ -14,31 +24,69 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    color: #333;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Noto Serif SC', serif;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* 隐藏滚动条但保持滚动功能 */
+  /* Dark theme scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 3px;
+    background: var(--bg-elevated);
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 3px;
+    background: var(--accent-primary);
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+    background: var(--accent-secondary);
+  }
+
+  /* ── Section container ── */
+  .section-container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--section-padding-y) var(--section-padding-x);
+  }
+
+  /* ── Section label (DM Mono eyebrow) ── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── Divider line ── */
+  .divider-line {
+    width: 80px;
+    height: 1px;
+    background: var(--accent-gradient);
+    margin: 1.5rem 0;
+  }
+
+  /* ── Red accent left-border card ── */
+  .card-base {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 2px;
+    padding: 1.25rem;
+    transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  }
+  .card-base:hover {
+    border-color: var(--border-active);
+    box-shadow: var(--shadow-red);
+    transform: translateY(-2px);
   }
 
   /* 移动端优化 */
@@ -55,7 +103,7 @@
     }
 
     /* 优化触摸反馈 */
-    button:active, a:active {
+    button:active, a:active, .touch-target:active {
       transform: scale(0.98);
       transition: transform 0.1s ease;
     }
@@ -71,7 +119,8 @@
     /* 优化输入框 */
     input, textarea {
       font-size: 16px; /* 防止iOS缩放 */
-      border-radius: 8px;
+      border-radius: 12px;
+      padding: 12px 16px;
     }
 
     /* 移动端滚动优化 */
@@ -87,18 +136,107 @@
         transition-duration: 0.01ms !important;
       }
     }
+
+    /* 移动端布局优化 */
+    .mobile-optimized {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .mobile-card {
+      margin-bottom: 16px;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .mobile-text {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .mobile-heading {
+      font-size: 24px;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    /* 移动端按钮优化 */
+    .mobile-button {
+      width: 100%;
+      min-height: 48px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+    }
+
+    /* 移动端间距系统 */
+    .mobile-section {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .mobile-spacing {
+      margin-bottom: 24px;
+    }
   }
 
   /* 针对不同设备像素比的优化 */
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     /* 高清屏优化 */
+    .horse-paper-cut,
+    .horse-ink-wash {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
   }
 
   /* 横屏模式优化 */
   @media (orientation: landscape) and (max-height: 500px) {
     /* 横屏小屏幕优化 */
     .hero-section {
-      min-height: 80vh;
+      min-height: 70vh;
+    }
+
+    .mobile-section {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+  }
+
+  /* 触屏设备优化 */
+  @supports (hover: none) and (pointer: coarse) {
+    /* 触屏设备特殊优化 */
+    button, .touch-target {
+      transition: all 0.15s ease;
+    }
+
+    button:active, .touch-target:active {
+      transform: scale(0.95);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* 触屏设备字体优化 */
+    body {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+
+  /* 大屏幕优化 */
+  @media (min-width: 1024px) {
+    .mobile-card {
+      margin-bottom: 32px;
+      padding: 32px;
+    }
+
+    .mobile-section {
+      padding-top: 80px;
+      padding-bottom: 80px;
     }
   }
 }
@@ -294,163 +432,91 @@
   }
 }
 
-/* 马年春节主题色彩变量 - 烈焰骏马 */
+/* INK FUTURE - Dark Precision Design System */
 :root {
-  --spring-red: #C0272D;          /* 中国红 - 主色 */
-  --spring-light-red: #E84A35;    /* 朱砂橙红 - 渐变 */
-  --spring-gold: #F5C842;         /* 哑光金 */
-  --spring-burnished-gold: #D4A017; /* 烤漆金 */
-  --spring-deep-brown: #1A0A00;   /* 深沉墨褐 */
-  --spring-ivory: #FFE4B5;        /* 米白绢色 */
-  --spring-dark-red: #8B0000;     /* 深酒红 */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-surface: #16161f;
+  --bg-elevated: #1c1c28;
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-active: rgba(220,38,38,0.5);
+
+  --accent-primary: #dc2626;
+  --accent-secondary: #f59e0b;
+  --accent-glow: rgba(220,38,38,0.15);
+
+  --text-primary: #f0f0f5;
+  --text-secondary: #8888a0;
+  --text-muted: #44445a;
+
+  --gradient-hero: linear-gradient(135deg, #0a0a0f 0%, #14141e 50%, #0f0a0a 100%);
 }
 
-/* 马元素设计语言 */
-.horse-paper-cut {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80'%3E%3Cpath d='M20,40 L30,20 L40,25 L50,15 L60,20 L70,10 L80,15 L85,25 L80,35 L70,30 L60,40 L50,35 L40,45 L30,40 L20,50 L15,45 Z' fill='%23C0272D' stroke='%23D4A017' stroke-width='2'/%3E%3Cpath d='M25,45 L35,35 L45,40 L55,30 L65,35 L75,25' fill='none' stroke='%23D4A017' stroke-width='1'/%3E%3C/svg%3E") no-repeat center;
-  background-size: contain;
-}
-
-.horse-ink-wash {
-  position: relative;
-}
-
-.horse-ink-wash::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cdefs%3E%3Cfilter id='ink'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='4'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='3'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M20,50 Q40,20 60,25 Q80,15 100,30 Q90,45 80,40 Q70,55 60,50 Q50,60 40,55 Q30,65 20,60 Z' fill='%23C0272D' filter='url(%23ink)' opacity='0.7'/%3E%3C/svg%3E") no-repeat center;
-  background-size: contain;
-  opacity: 0.6;
-}
-
-.horse-line-pattern {
-  background-image:
-    linear-gradient(45deg, transparent 40%, rgba(196, 181, 23, 0.1) 40%, rgba(196, 181, 23, 0.1) 60%, transparent 60%),
-    linear-gradient(-45deg, transparent 40%, rgba(196, 181, 23, 0.1) 40%, rgba(196, 181, 23, 0.1) 60%, transparent 60%);
-  background-size: 8px 8px;
-}
-
-.horse-mane-flow {
-  position: relative;
-  overflow: hidden;
-}
-
-.horse-mane-flow::after {
-  content: '';
-  position: absolute;
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
   top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(245, 200, 66, 0.3), transparent);
-  animation: maneFlow 3s ease-in-out infinite;
+  left: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  transform-origin: left;
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s ease;
 }
 
-@keyframes maneFlow {
-  0%, 100% { left: -100%; }
-  50% { left: 100%; }
-}
-
-.horse-hoof-gold {
-  position: relative;
-}
-
-.horse-hoof-gold::before {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 15px;
-  background: linear-gradient(to bottom, var(--spring-burnished-gold), var(--spring-gold));
-  border-radius: 50% 50% 40% 40%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-/* 国潮风格 - 传统纹样 + 现代极简 */
-.guochao-style {
-  background: linear-gradient(135deg, var(--spring-red) 0%, var(--spring-light-red) 100%);
-  position: relative;
-}
-
-.guochao-style::before {
+/* Noise texture overlay */
+.noise-overlay::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 20% 80%, rgba(245, 200, 66, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(212, 160, 23, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(255, 228, 181, 0.05) 0%, transparent 50%);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* 烫金工艺感 */
-.hot-stamping {
-  background: linear-gradient(135deg, var(--spring-burnished-gold) 0%, var(--spring-gold) 50%, var(--spring-burnished-gold) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+/* Character draw animation for SVG paths */
+.character-path {
+  stroke-dasharray: 100%;
+  stroke-dashoffset: 100%;
+  animation: characterDraw 2s ease-in-out forwards;
 }
 
-/* 丝绸质感 */
-.silk-texture {
-  background:
-    linear-gradient(135deg, rgba(192, 39, 45, 0.1) 0%, rgba(232, 74, 53, 0.1) 100%),
-    repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 228, 181, 0.03) 2px, rgba(255, 228, 181, 0.03) 4px);
-}
+/* New component styles for INK FUTURE */
+@layer components {
+  /* Form styles */
+  .form-input {
+    @apply w-full px-4 py-3 border-b border-border-subtle bg-transparent text-text-primary placeholder-text-muted focus:border-accent-primary focus:outline-none transition-colors;
+  }
 
-/* 宣纸质感 */
-.rice-paper-texture {
-  background:
-    linear-gradient(135deg, rgba(255, 228, 181, 0.1) 0%, rgba(192, 39, 45, 0.05) 100%),
-    radial-gradient(circle at 30% 40%, rgba(212, 160, 23, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(232, 74, 53, 0.08) 0%, transparent 50%);
-}
+  .form-label {
+    @apply text-sm font-medium text-text-secondary mb-2 block;
+  }
 
-/* 金箔质感 */
-.gold-foil-texture {
-  background:
-    linear-gradient(135deg, rgba(212, 160, 23, 0.2) 0%, rgba(245, 200, 66, 0.3) 50%, rgba(212, 160, 23, 0.2) 100%),
-    radial-gradient(circle at 25% 25%, rgba(255, 228, 181, 0.1) 0%, transparent 50%);
-  box-shadow: inset 0 0 20px rgba(245, 200, 66, 0.1);
-}
+  .form-error {
+    @apply text-accent-primary text-sm mt-1 border-l-2 border-accent-primary pl-3;
+  }
 
-/* 留白东方美学 */
-.oriental-whitespace {
-  padding: 2rem;
-  margin: 1rem 0;
-}
+  /* Button styles */
+  .btn-primary {
+    @apply bg-accent-primary text-text-primary border border-accent-primary hover:bg-transparent hover:text-accent-primary transition-all duration-200 font-medium px-6 py-3 rounded-none;
+  }
 
-/* 暖金色光晕 */
-.warm-gold-glow {
-  box-shadow:
-    0 0 20px rgba(245, 200, 66, 0.3),
-    0 0 40px rgba(212, 160, 23, 0.2),
-    0 0 80px rgba(192, 39, 45, 0.1);
-}
+  .btn-secondary {
+    @apply bg-transparent text-accent-primary border border-accent-primary hover:bg-accent-primary hover:text-text-primary transition-all duration-200 font-medium px-6 py-3 rounded-none;
+  }
 
-/* 灯笼散光 */
-.lantern-scatter {
-  background:
-    radial-gradient(circle at 30% 70%, rgba(245, 200, 66, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 70% 30%, rgba(232, 74, 53, 0.3) 0%, transparent 50%);
-}
+  /* Card styles */
+  .card-modern {
+    @apply bg-bg-elevated border border-border-subtle rounded-none p-6 hover:border-accent-primary transition-colors;
+  }
 
-/* 烛火微光 */
-.candle-glow {
-  background:
-    radial-gradient(circle at center, rgba(245, 200, 66, 0.6) 0%, rgba(212, 160, 23, 0.4) 30%, transparent 70%);
-  animation: candleFlicker 4s ease-in-out infinite alternate;
+  /* Section label */
+  .section-label {
+    @apply text-text-muted font-dm-mono uppercase text-xs letter-spacing-0.15 tracking-wider mb-6;
+  }
 }
-
-@keyframes candleFlicker {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.02); }
-}
-
-/* 打印样式 */
 @media print {
   .no-print {
     display: none !important;

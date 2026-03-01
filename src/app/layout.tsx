@@ -1,33 +1,34 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import ScrollProgress from '@/components/ScrollProgress'
 
 export const metadata: Metadata = {
-  title: '新春快乐 | 技术创新 · 马年新起点',
-  description: '新春互动拜年，汇聚祝福传递温暖。探索我们的软件开发、智能工厂改造和数据主权理念，共庆马年新春，共创美好未来。',
-  keywords: '春节, 新春, 拜年, 马年, 技术创新, AI, 智能制造, 数据主权, 祝福墙',
-  authors: [{ name: '技术创新团队' }],
-  creator: '技术创新团队',
-  publisher: '技术创新团队',
+  title: 'INK FUTURE | Year of the Horse',
+  description: 'Where ancient Chinese ink aesthetics meet modern engineering precision.',
+  keywords: 'ink, future, design, chinese, modern, ui, ux',
+  authors: [{ name: 'INK FUTURE' }],
+  creator: 'INK FUTURE',
+  publisher: 'INK FUTURE',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://spring-landing.vercel.app'),
+  metadataBase: new URL('https://ink-future.vercel.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: '新春快乐 | 技术创新 · 马年新起点',
-    description: '新春互动拜年，汇聚祝福传递温暖。探索我们的软件开发、智能工厂改造和数据主权理念，共庆马年新春，共创美好未来。',
+    title: 'INK FUTURE | Year of the Horse',
+    description: 'Where ancient Chinese ink aesthetics meet modern engineering precision.',
     url: '/',
-    siteName: 'Spring Festival Landing',
+    siteName: 'INK FUTURE',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: '新春快乐 - 技术创新马年新起点',
+        alt: 'INK FUTURE - Year of the Horse',
       },
     ],
     locale: 'zh_CN',
@@ -35,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '新春快乐 | 技术创新 · 马年新起点',
-    description: '新春互动拜年，汇聚祝福传递温暖。共庆马年新春，共创美好未来。',
+    title: 'INK FUTURE | Year of the Horse',
+    description: 'Where ancient Chinese ink aesthetics meet modern engineering precision.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -61,14 +62,14 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
     other: [
-      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#DC2626' },
+      { rel: 'mask-icon', url: '/safari-pinned-tab.svg', color: '#dc2626' },
     ],
   },
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: '新春祝福'
+    title: 'INK FUTURE'
   }
 }
 
@@ -76,8 +77,8 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#C0272D',
-  colorScheme: 'light dark',
+  themeColor: '#0a0a0f',
+  colorScheme: 'dark light',
 };
 
 export default function RootLayout({
@@ -87,7 +88,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN">
-      <body className="bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 min-h-screen">
+      <body className="noise-overlay min-h-screen">
+        <ScrollProgress />
         {children}
       </body>
     </html>

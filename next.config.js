@@ -4,7 +4,7 @@ const nextConfig = {
     // optimizeCss: true // Disabled to fix build issues
   },
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'images.unsplash.com'],
     formats: ['image/webp', 'image/avif']
   },
   compress: true,
