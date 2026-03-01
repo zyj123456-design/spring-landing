@@ -43,7 +43,11 @@ if (greetings.length === 0) {
 export function getAllGreetings(): Greeting[] {
   // 返回最新的50条，按时间倒序
   return greetings
-    .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
+    .sort((a, b) => {
+      const timeA = a.timestamp instanceof Date ? a.timestamp.getTime() : new Date(a.timestamp).getTime();
+      const timeB = b.timestamp instanceof Date ? b.timestamp.getTime() : new Date(b.timestamp).getTime();
+      return timeB - timeA;
+    })
     .slice(0, 50);
 }
 
@@ -53,7 +57,9 @@ export function addGreeting(greeting: Greeting): void {
   // 限制总数，删除最旧的
   if (greetings.length > 1000) {
     const oldestIndex = greetings.reduce((oldest, current, index) => {
-      return current.timestamp < greetings[oldest].timestamp ? index : oldest;
+      const currentTime = current.timestamp instanceof Date ? current.timestamp.getTime() : new Date(current.timestamp).getTime();
+      const oldestTime = greetings[oldest].timestamp instanceof Date ? greetings[oldest].timestamp.getTime() : new Date(greetings[oldest].timestamp).getTime();
+      return currentTime < oldestTime ? index : oldest;
     }, 0);
     greetings.splice(oldestIndex, 1);
   }
@@ -61,7 +67,10 @@ export function addGreeting(greeting: Greeting): void {
 
 export function cleanupOldGreetings(): void {
   const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
-  greetings = greetings.filter(g => g.timestamp.getTime() > sevenDaysAgo);
+  greetings = greetings.filter(g => {
+    const timestamp = g.timestamp instanceof Date ? g.timestamp.getTime() : new Date(g.timestamp).getTime();
+    return timestamp > sevenDaysAgo;
+  });
 }
 
 // 定期清理（每小时）
