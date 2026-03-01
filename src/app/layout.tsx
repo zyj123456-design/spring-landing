@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   keywords: '春节, 拜年, 技术创新, AI, 智能制造, 数据主权',
   authors: [{ name: '技术团队' }],
   viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
