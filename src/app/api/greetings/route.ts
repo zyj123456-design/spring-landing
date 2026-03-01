@@ -7,14 +7,18 @@ import { Greeting } from '@/types/greeting';
 // GET /api/greetings - 获取所有拜年信息
 export async function GET() {
   try {
+    console.log('API GET: Starting to fetch greetings');
     const greetings = getAllGreetings();
+    console.log('API GET: Fetched greetings successfully:', greetings.length);
     return NextResponse.json({
       success: true,
       greetings
     });
   } catch (error) {
+    console.error('API GET Error:', error);
+    const message = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { success: false, error: '获取拜年信息失败' },
+      { success: false, error: '获取拜年信息失败', details: message },
       { status: 500 }
     );
   }

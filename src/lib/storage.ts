@@ -48,7 +48,11 @@ export function getAllGreetings(): Greeting[] {
       const timeB = b.timestamp instanceof Date ? b.timestamp.getTime() : new Date(b.timestamp).getTime();
       return timeB - timeA;
     })
-    .slice(0, 50);
+    .slice(0, 50)
+    .map(greeting => ({
+      ...greeting,
+      timestamp: greeting.timestamp instanceof Date ? greeting.timestamp.toISOString() : greeting.timestamp
+    }));
 }
 
 export function addGreeting(greeting: Greeting): void {
