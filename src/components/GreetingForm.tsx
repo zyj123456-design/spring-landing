@@ -38,8 +38,53 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
 
   return (
     <div id="greetings" className="relative">
-      {/* 背景装饰 */}
-      <div className="absolute inset-0 bg-gradient-to-br from-spring-red/5 via-orange-50/30 to-gold-50/20 rounded-3xl"></div>
+      {/* 春节视觉装饰 - 多层次布局 */}
+      <div className="absolute inset-0">
+        {/* 第一层：祥云纹理背景 */}
+        <div className="absolute top-8 right-8 w-24 h-16 bg-gradient-to-br from-spring-ivory/15 to-transparent rounded-full blur-lg animate-pulse"></div>
+        <div className="absolute bottom-12 left-12 w-20 h-14 bg-gradient-to-tr from-spring-gold/10 to-transparent rounded-full blur-md animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+        {/* 第二层：传统窗花装饰 */}
+        <div className="absolute top-4 left-4 opacity-15">
+          <svg width="40" height="40" viewBox="0 0 40 40" className="animate-pulse">
+            <path d="M20,5 L25,15 L35,15 L28,22 L31,32 L20,26 L9,32 L12,22 L5,15 L15,15 Z" fill="#DC2626" stroke="#F59E0B" strokeWidth="1"/>
+            <circle cx="20" cy="20" r="8" fill="none" stroke="#DC2626" strokeWidth="2"/>
+            <circle cx="20" cy="20" r="3" fill="#F59E0B"/>
+          </svg>
+        </div>
+
+        <div className="absolute top-6 right-6 opacity-15">
+          <svg width="35" height="35" viewBox="0 0 35 35" className="animate-pulse" style={{ animationDelay: '0.5s' }}>
+            <path d="M17.5,5 L22,12 L30,12 L24,17 L26.5,25 L17.5,20 L8.5,25 L11,17 L5,12 L13,12 Z" fill="#8B0000" stroke="#F59E0B" strokeWidth="1"/>
+            <rect x="15" y="15" width="5" height="5" fill="#F59E0B"/>
+          </svg>
+        </div>
+
+        {/* 第三层：飘落的桃花瓣 */}
+        <div className="absolute top-16 left-8 animate-float opacity-30">
+          <svg width="20" height="20" viewBox="0 0 20 20">
+            <path d="M10,2 Q12,8 18,10 Q12,12 10,18 Q8,12 2,10 Q8,8 10,2" fill="#E84A35" stroke="#DC2626" strokeWidth="0.5"/>
+          </svg>
+        </div>
+
+        <div className="absolute top-24 right-12 animate-float opacity-25" style={{ animationDelay: '1.5s' }}>
+          <svg width="16" height="16" viewBox="0 0 16 16">
+            <path d="M8,1 Q9,6 14,8 Q9,10 8,15 Q7,10 2,8 Q7,6 8,1" fill="#F5C842" stroke="#D4A017" strokeWidth="0.5"/>
+          </svg>
+        </div>
+
+        <div className="absolute bottom-20 left-16 animate-float opacity-20" style={{ animationDelay: '3s' }}>
+          <svg width="18" height="18" viewBox="0 0 18 18">
+            <path d="M9,1 Q10,7 16,9 Q10,11 9,17 Q8,11 2,9 Q8,7 9,1" fill="#FFE4B5" stroke="#F5C842" strokeWidth="0.5"/>
+          </svg>
+        </div>
+
+        {/* 第四层：传统纹样边框 */}
+        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-spring-red/20 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-spring-gold/15 to-transparent"></div>
+        <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-transparent via-spring-red/20 to-transparent"></div>
+        <div className="absolute right-0 top-0 w-2 h-full bg-gradient-to-b from-transparent via-spring-gold/15 to-transparent"></div>
+      </div>
       <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-red-400 to-orange-500 rounded-full opacity-60 animate-pulse"></div>
       <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-gold-400 to-yellow-500 rounded-full opacity-70 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
 

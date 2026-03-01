@@ -23,10 +23,56 @@ export default function GreetingWall({ greetings }: GreetingWallProps) {
 
   return (
     <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-8 border border-white/50 relative overflow-hidden">
-      {/* 背景装饰 - 移动端优化 */}
-      <div className="absolute inset-0 bg-gradient-to-br from-spring-red/5 via-transparent to-gold-50/20 rounded-2xl md:rounded-3xl"></div>
-      <div className="absolute top-4 right-4 md:top-6 md:right-6 w-8 h-8 md:w-12 md:h-12 bg-gradient-to-br from-spring-red to-spring-gold rounded-2xl opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 w-6 h-6 md:w-8 md:h-8 bg-gradient-to-br from-gold-400 to-yellow-500 rounded-full opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
+      {/* 春节视觉盛宴 - 多层次装饰 */}
+      <div className="absolute inset-0">
+        {/* 第一层：祥云纹理背景 */}
+        <div className="absolute top-6 left-6 w-20 h-14 bg-gradient-to-br from-spring-ivory/12 to-transparent rounded-full blur-lg animate-pulse"></div>
+        <div className="absolute bottom-8 right-8 w-18 h-12 bg-gradient-to-tl from-spring-gold/8 to-transparent rounded-full blur-md animate-pulse" style={{ animationDelay: '1s' }}></div>
+
+        {/* 第二层：传统窗花图案 */}
+        <div className="absolute top-3 right-3 opacity-12">
+          <svg width="30" height="30" viewBox="0 0 30 30" className="animate-pulse">
+            <path d="M15,3 L18,10 L27,10 L20,15 L23,23 L15,18 L7,23 L10,15 L3,10 L12,10 Z" fill="#DC2626" stroke="#F59E0B" strokeWidth="0.5"/>
+            <circle cx="15" cy="15" r="5" fill="none" stroke="#DC2626" strokeWidth="1"/>
+            <circle cx="15" cy="15" r="2" fill="#F59E0B"/>
+          </svg>
+        </div>
+
+        <div className="absolute bottom-4 left-4 opacity-10">
+          <svg width="25" height="25" viewBox="0 0 25 25" className="animate-pulse" style={{ animationDelay: '0.7s' }}>
+            <path d="M12.5,2 L15,7 L22,7 L17,11 L19,18 L12.5,14 L6,18 L8,11 L3,7 L10,7 Z" fill="#8B0000" stroke="#F59E0B" strokeWidth="0.5"/>
+            <rect x="10" y="10" width="5" height="5" fill="#F59E0B" transform="rotate(45 12.5 12.5)"/>
+          </svg>
+        </div>
+
+        {/* 第三层：飘落的梅花瓣 */}
+        <div className="absolute top-12 left-8 animate-float opacity-25">
+          <svg width="16" height="16" viewBox="0 0 16 16">
+            <path d="M8,1 Q9,5 14,8 Q9,11 8,15 Q7,11 2,8 Q7,5 8,1" fill="#DC2626" stroke="#8B0000" strokeWidth="0.3"/>
+            <circle cx="8" cy="8" r="2" fill="#F59E0B"/>
+          </svg>
+        </div>
+
+        <div className="absolute top-20 right-12 animate-float opacity-20" style={{ animationDelay: '2s' }}>
+          <svg width="14" height="14" viewBox="0 0 14 14">
+            <path d="M7,1 Q8,4 12,7 Q8,10 7,13 Q6,10 2,7 Q6,4 7,1" fill="#F5C842" stroke="#D4A017" strokeWidth="0.3"/>
+            <circle cx="7" cy="7" r="1.5" fill="#FFE4B5"/>
+          </svg>
+        </div>
+
+        {/* 第四层：传统吉祥字符装饰 */}
+        <div className="absolute bottom-6 right-6 opacity-8 text-spring-red font-bold text-lg animate-pulse" style={{ animationDelay: '1.5s' }}>
+          福
+        </div>
+
+        <div className="absolute top-8 left-8 opacity-6 text-spring-gold font-bold text-base animate-pulse" style={{ animationDelay: '3s' }}>
+          喜
+        </div>
+
+        {/* 第五层：回纹装饰边框 */}
+        <div className="absolute top-2 left-2 right-2 h-1 bg-gradient-to-r from-transparent via-spring-red/15 to-transparent rounded-full"></div>
+        <div className="absolute bottom-2 left-2 right-2 h-1 bg-gradient-to-r from-transparent via-spring-gold/10 to-transparent rounded-full"></div>
+      </div>
 
       {/* 标题区域 - 移动端优化 */}
       <div className="relative text-center mb-6 md:mb-8">

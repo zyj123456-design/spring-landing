@@ -1,16 +1,104 @@
 export default function Philosophy() {
   return (
     <section className="relative py-20 px-4 bg-gradient-to-br from-violet-50 via-purple-50/30 to-pink-50/20 overflow-hidden">
-      {/* 背景装饰 */}
+      {/* 春节视觉盛宴 - 哲学主题装饰 */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-16 w-32 h-32 bg-gradient-to-br from-purple-400/10 to-transparent rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-16 w-40 h-40 bg-gradient-to-br from-pink-400/10 to-transparent rounded-full blur-xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-gradient-to-br from-spring-red/5 to-purple-400/5 rounded-full blur-2xl"></div>
+        {/* 第一层：祥云智慧纹理 */}
+        <div className="absolute top-16 left-12 w-36 h-24 bg-gradient-to-r from-purple-200/15 to-transparent rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-16 w-32 h-20 bg-gradient-to-l from-pink-200/10 to-transparent rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-28 h-18 bg-gradient-to-br from-violet-300/8 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
 
-        {/* 数据流光效果 */}
-        <div className="absolute top-1/4 left-1/4 w-px h-16 bg-gradient-to-b from-transparent via-purple-300 to-transparent animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/3 w-px h-20 bg-gradient-to-b from-transparent via-pink-300 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/3 left-1/3 w-px h-24 bg-gradient-to-b from-transparent via-violet-300 to-transparent animate-pulse" style={{ animationDelay: '2s' }}></div>
+        {/* 第二层：智慧灯笼装饰 */}
+        <div className="absolute top-20 right-8 animate-lantern">
+          <div className="relative">
+            <div className="w-12 h-16 bg-gradient-to-b from-purple-500 to-purple-700 rounded-full shadow-lg border-2 border-gold-400">
+              <div className="w-8 h-9 bg-yellow-300 rounded-full mx-auto mt-1 opacity-90 animate-pulse"></div>
+              <div className="text-center text-purple-800 font-bold text-xs mt-1">智</div>
+            </div>
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-14 h-1.5 bg-purple-600 rounded-full"></div>
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-14 h-1.5 bg-purple-600 rounded-full"></div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-16 left-8 animate-lantern" style={{ animationDelay: '1.5s' }}>
+          <div className="relative">
+            <div className="w-10 h-14 bg-gradient-to-b from-pink-500 to-pink-700 rounded-full shadow-lg border-2 border-gold-400">
+              <div className="w-7 h-8 bg-yellow-200 rounded-full mx-auto mt-1 opacity-90 animate-pulse"></div>
+              <div className="text-center text-pink-800 font-bold text-xs mt-0.5">慧</div>
+            </div>
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-12 h-1.5 bg-pink-600 rounded-full"></div>
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-1.5 bg-pink-600 rounded-full"></div>
+          </div>
+        </div>
+
+        {/* 第三层：智慧之光效果 */}
+        <div className="absolute top-12 left-1/3">
+          <div className="relative">
+            <div className="w-3 h-3 bg-purple-400 rounded-full animate-firework opacity-70"></div>
+            <div className="absolute inset-0 w-6 h-6 border-2 border-purple-300 rounded-full animate-ping opacity-50"></div>
+            <div className="absolute inset-0 w-8 h-8 border border-pink-400 rounded-full animate-pulse opacity-30" style={{ animationDelay: '0.5s' }}></div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-12 right-1/3">
+          <div className="relative">
+            <div className="w-2.5 h-2.5 bg-pink-400 rounded-full animate-firework opacity-60" style={{ animationDelay: '1.5s' }}></div>
+            <div className="absolute inset-0 w-5 h-5 border-2 border-pink-300 rounded-full animate-ping opacity-40"></div>
+            <div className="absolute inset-0 w-7 h-7 border border-purple-400 rounded-full animate-pulse opacity-25" style={{ animationDelay: '2s' }}></div>
+          </div>
+        </div>
+
+        {/* 第四层：哲学对联装饰 */}
+        <div className="absolute top-1/3 right-4 transform rotate-3 opacity-12">
+          <div className="bg-gradient-to-b from-purple-600 to-purple-800 text-white px-2 py-4 rounded-md shadow-md border border-gold-400">
+            <div className="text-xs font-bold writing-vertical">数</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">据</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">主</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">权</div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-1/3 left-4 transform -rotate-3 opacity-12">
+          <div className="bg-gradient-to-b from-pink-600 to-pink-800 text-white px-2 py-4 rounded-md shadow-md border border-gold-400">
+            <div className="text-xs font-bold writing-vertical">智</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">慧</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">未</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">来</div>
+          </div>
+        </div>
+
+        {/* 第五层：飘落的智慧之书和数据晶体 */}
+        <div className="absolute top-24 left-16 animate-float opacity-25">
+          <div className="relative">
+            <div className="w-6 h-8 bg-gradient-to-b from-purple-500 to-purple-700 rounded-sm shadow-md border border-gold-400 flex items-center justify-center">
+              <span className="text-gold-800 font-bold text-xs">📚</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-24 right-20 animate-float opacity-20" style={{ animationDelay: '2s' }}>
+          <div className="relative">
+            <div className="w-5 h-7 bg-gradient-to-b from-pink-500 to-pink-700 rounded-sm shadow-md border border-gold-400 flex items-center justify-center">
+              <span className="text-gold-800 font-bold text-xs">💎</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 第六层：哲学吉祥图案 */}
+        <div className="absolute top-8 right-1/3 opacity-6">
+          <svg width="45" height="45" viewBox="0 0 45 45" className="animate-pulse">
+            <circle cx="22.5" cy="22.5" r="18" fill="none" stroke="#8B5CF6" strokeWidth="2"/>
+            <path d="M13.5,22.5 Q22.5,9 31.5,22.5 Q22.5,36 13.5,22.5" fill="#EC4899" stroke="#8B5CF6" strokeWidth="1"/>
+            <circle cx="22.5" cy="18" r="2.5" fill="#8B5CF6"/>
+            <circle cx="22.5" cy="27" r="2.5" fill="#EC4899"/>
+            <text x="22.5" y="40" textAnchor="middle" fill="#F59E0B" fontSize="7" fontWeight="bold">哲</text>
+          </svg>
+        </div>
+
+        {/* 第七层：动态数据流光 */}
+        <div className="absolute top-1/4 left-1/4 w-px h-20 bg-gradient-to-b from-transparent via-purple-400 to-transparent animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/3 w-px h-16 bg-gradient-to-b from-transparent via-pink-400 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-px h-18 bg-gradient-to-b from-transparent via-violet-400 to-transparent animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto">

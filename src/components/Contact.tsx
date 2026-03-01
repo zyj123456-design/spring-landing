@@ -1,23 +1,100 @@
 export default function Contact() {
   return (
     <section className="relative py-20 px-4 bg-gradient-to-br from-spring-dark-red via-red-600 to-pink-600 overflow-hidden">
-      {/* 背景装饰 - 春节烟花和灯笼 */}
+      {/* 春节视觉盛宴 - 多层次装饰 */}
       <div className="absolute inset-0">
-        <div className="absolute top-16 left-12 w-20 h-20 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full blur-lg animate-pulse"></div>
-        <div className="absolute bottom-16 right-12 w-24 h-24 bg-gradient-to-br from-pink-400/20 to-purple-400/20 rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-red-400/10 to-gold-400/10 rounded-full blur-xl"></div>
+        {/* 第一层：祥云纹理背景 */}
+        <div className="absolute top-12 left-8 w-32 h-20 bg-gradient-to-r from-spring-ivory/10 to-transparent rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-16 right-12 w-28 h-18 bg-gradient-to-l from-spring-gold/8 to-transparent rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-16 bg-gradient-to-br from-pink-400/6 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
 
-        {/* 动态烟花 */}
-        <div className="absolute top-20 right-20 w-3 h-3 bg-yellow-300 rounded-full animate-firework opacity-60"></div>
-        <div className="absolute top-32 left-32 w-2 h-2 bg-orange-300 rounded-full animate-firework opacity-70" style={{ animationDelay: '0.8s' }}></div>
-        <div className="absolute bottom-20 left-20 w-2.5 h-2.5 bg-pink-300 rounded-full animate-firework opacity-50" style={{ animationDelay: '1.6s' }}></div>
-
-        {/* 浮动灯笼 */}
-        <div className="absolute top-24 right-8 w-8 h-12 bg-gradient-to-b from-red-400 to-red-600 rounded-full opacity-70 animate-lantern shadow-lg">
-          <div className="w-6 h-6 bg-yellow-300 rounded-full mx-auto mt-1 opacity-90"></div>
+        {/* 第二层：传统灯笼装饰 */}
+        <div className="absolute top-20 left-6 animate-lantern">
+          <div className="relative">
+            <div className="w-10 h-14 bg-gradient-to-b from-red-500 to-red-700 rounded-full shadow-lg border-2 border-yellow-400">
+              <div className="w-7 h-8 bg-yellow-300 rounded-full mx-auto mt-1 opacity-90 animate-pulse"></div>
+              <div className="text-center text-red-800 font-bold text-xs mt-0.5">寿</div>
+            </div>
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-12 h-1.5 bg-red-600 rounded-full"></div>
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-1.5 bg-red-600 rounded-full"></div>
+          </div>
         </div>
-        <div className="absolute bottom-24 left-8 w-6 h-10 bg-gradient-to-b from-gold-400 to-gold-600 rounded-full opacity-60 animate-lantern shadow-lg" style={{ animationDelay: '1.5s' }}>
-          <div className="w-4 h-4 bg-yellow-200 rounded-full mx-auto mt-0.5 opacity-90"></div>
+
+        <div className="absolute bottom-24 right-8 animate-lantern" style={{ animationDelay: '1.5s' }}>
+          <div className="relative">
+            <div className="w-12 h-16 bg-gradient-to-b from-gold-500 to-gold-700 rounded-full shadow-lg border-2 border-red-400">
+              <div className="w-8 h-9 bg-yellow-200 rounded-full mx-auto mt-1.5 opacity-90 animate-pulse"></div>
+              <div className="text-center text-gold-800 font-bold text-xs mt-1">禧</div>
+            </div>
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-14 h-1.5 bg-gold-600 rounded-full"></div>
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-14 h-1.5 bg-gold-600 rounded-full"></div>
+          </div>
+        </div>
+
+        {/* 第三层：烟花绽放效果 */}
+        <div className="absolute top-8 right-16">
+          <div className="relative">
+            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-firework opacity-60"></div>
+            <div className="absolute inset-0 w-4 h-4 border-2 border-yellow-300 rounded-full animate-ping opacity-40"></div>
+            <div className="absolute inset-0 w-6 h-6 border border-red-400 rounded-full animate-pulse opacity-20" style={{ animationDelay: '0.5s' }}></div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-12 left-12">
+          <div className="relative">
+            <div className="w-1.5 h-1.5 bg-pink-400 rounded-full animate-firework opacity-50" style={{ animationDelay: '1.5s' }}></div>
+            <div className="absolute inset-0 w-3 h-3 border-2 border-pink-300 rounded-full animate-ping opacity-30"></div>
+            <div className="absolute inset-0 w-5 h-5 border border-gold-400 rounded-full animate-pulse opacity-15" style={{ animationDelay: '2s' }}></div>
+          </div>
+        </div>
+
+        {/* 第四层：春节对联装饰 */}
+        <div className="absolute top-1/4 left-2 transform -rotate-6 opacity-15">
+          <div className="bg-gradient-to-b from-red-600 to-red-800 text-white px-2 py-4 rounded-md shadow-md border border-gold-400">
+            <div className="text-xs font-bold writing-vertical">迎</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">春</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">接</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">福</div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-1/4 right-4 transform rotate-6 opacity-15">
+          <div className="bg-gradient-to-b from-gold-600 to-gold-800 text-white px-2 py-4 rounded-md shadow-md border border-red-400">
+            <div className="text-xs font-bold writing-vertical">万</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">事</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">胜</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">意</div>
+          </div>
+        </div>
+
+        {/* 第五层：飘落的红包和元宝 */}
+        <div className="absolute top-16 right-1/4 animate-float opacity-20">
+          <div className="relative">
+            <div className="w-6 h-8 bg-gradient-to-b from-red-500 to-red-700 rounded-md shadow-md border border-gold-400 flex items-center justify-center">
+              <span className="text-gold-800 font-bold text-xs">🧧</span>
+            </div>
+            <div className="absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-5 h-1 bg-red-600 rounded-full"></div>
+            <div className="absolute -bottom-0.5 left-1/2 transform -translate-x-1/2 w-5 h-1 bg-red-600 rounded-full"></div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-20 left-1/3 animate-float opacity-15" style={{ animationDelay: '2.5s' }}>
+          <div className="relative">
+            <div className="w-7 h-5 bg-gradient-to-b from-gold-500 to-gold-700 rounded-sm shadow-md border border-red-400 flex items-center justify-center">
+              <span className="text-red-800 font-bold text-xs">💰</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 第六层：传统吉祥图案 */}
+        <div className="absolute top-8 left-1/3 opacity-8">
+          <svg width="50" height="50" viewBox="0 0 50 50" className="animate-pulse">
+            <circle cx="25" cy="25" r="20" fill="none" stroke="#DC2626" strokeWidth="2"/>
+            <path d="M15,25 Q25,10 35,25 Q25,40 15,25" fill="#F59E0B" stroke="#DC2626" strokeWidth="1"/>
+            <circle cx="25" cy="20" r="3" fill="#DC2626"/>
+            <circle cx="25" cy="30" r="3" fill="#DC2626"/>
+            <text x="25" y="45" textAnchor="middle" fill="#F59E0B" fontSize="8" fontWeight="bold">喜</text>
+          </svg>
         </div>
       </div>
 
