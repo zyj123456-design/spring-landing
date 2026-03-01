@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 隐藏滚动条但保持滚动功能 */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+
+  /* 移动端优化 */
+  @media (max-width: 768px) {
+    ::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+  }
+}
+
+@layer components {
+  /* 按钮样式 */
+  .btn-primary {
+    @apply bg-spring-red hover:bg-spring-dark-red text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-spring-red text-spring-red hover:bg-spring-red hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200;
+  }
+
+  /* 卡片样式 */
+  .card-spring {
+    @apply bg-white rounded-2xl shadow-lg border-2 p-6 transition-all duration-300 hover:shadow-xl;
+  }
+
+  /* 表单样式 */
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-spring-red focus:border-transparent transition-colors;
+  }
+
+  .form-error {
+    @apply bg-red-50 border border-red-200 rounded-lg p-3 mt-2;
+  }
+
+  .form-success {
+    @apply bg-green-50 border border-green-200 rounded-lg p-3 mt-2;
+  }
+
+  /* 动画类 */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-lantern {
+    animation: lantern 4s ease-in-out infinite;
+  }
+
+  .animate-firework {
+    animation: firework 2s ease-out;
+  }
+}
+
+@layer utilities {
+  /* 渐变背景 */
+  .bg-spring-gradient {
+    background: linear-gradient(135deg, #DC2626, #F59E0B, #DC2626);
+  }
+
+  .bg-spring-radial {
+    background: radial-gradient(circle, #DC2626, #F59E0B, #DC2626);
+  }
+
+  /* 文字阴影 */
+  .text-shadow-spring {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* 毛玻璃效果 */
+  .backdrop-blur-spring {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* 自定义动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes lantern {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes firework {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 640px) {
+  .btn-primary,
+  .btn-secondary {
+    @apply py-2 px-4 text-sm;
+  }
+
+  .card-spring {
+    @apply p-4;
+  }
+}
+
+/* 春节主题色彩变量 */
+:root {
+  --spring-red: #DC2626;
+  --spring-gold: #F59E0B;
+  --spring-dark-red: #991B1B;
+  --spring-light-red: #EF4444;
+}
+
+/* 打印样式 */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
