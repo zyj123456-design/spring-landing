@@ -7,7 +7,7 @@ let greetings: Greeting[] = [];
 const sampleGreetings: Greeting[] = [
   {
     id: 'sample-1',
-    message: '祝大家新春快乐，龙年大吉！技术创新永不停步！',
+    message: '祝大家新春快乐，马年吉祥！技术创新永不停步！',
     senderName: '小明',
     timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2小时前
     ipHash: 'sample'
@@ -21,7 +21,7 @@ const sampleGreetings: Greeting[] = [
   },
   {
     id: 'sample-3',
-    message: '龙年新春，代码无BUG，项目顺利上线！',
+    message: '马年新春，代码无BUG，项目顺利上线！',
     senderName: '程序员',
     timestamp: new Date(Date.now() - 1000 * 60 * 15), // 15分钟前
     ipHash: 'sample'

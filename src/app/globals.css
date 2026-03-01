@@ -87,8 +87,16 @@
     animation: lantern 4s ease-in-out infinite;
   }
 
-  .animate-firework {
-    animation: firework 2s ease-out;
+  .animate-horse-gallop {
+    animation: horseGallop 3s ease-in-out infinite;
+  }
+
+  .animate-horse-mane {
+    animation: horseMane 2s ease-in-out infinite;
+  }
+
+  .animate-horse-hoof {
+    animation: horseHoof 1.5s ease-in-out infinite;
   }
 }
 
@@ -149,18 +157,26 @@
   66% { transform: translateY(-25px) rotate(-1deg); }
 }
 
-@keyframes firework {
+@keyframes horseGallop {
+  0%, 100% { transform: translateX(0px) rotate(0deg); }
+  25% { transform: translateX(-5px) rotate(-2deg); }
+  50% { transform: translateX(-10px) rotate(0deg); }
+  75% { transform: translateX(-5px) rotate(2deg); }
+}
+
+@keyframes horseMane {
+  0%, 100% { transform: scaleY(1) rotate(0deg); }
+  50% { transform: scaleY(1.2) rotate(5deg); }
+}
+
+@keyframes horseHoof {
   0%, 100% {
-    opacity: 0;
-    transform: scale(0.5);
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
   }
   50% {
+    transform: translateY(-8px) scale(1.1);
     opacity: 1;
-    transform: scale(1.2);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
   }
 }
 
@@ -176,12 +192,15 @@
   }
 }
 
-/* 春节主题色彩变量 */
+/* 马年春节主题色彩变量 */
 :root {
-  --spring-red: #DC2626;
-  --spring-gold: #F59E0B;
-  --spring-dark-red: #991B1B;
-  --spring-light-red: #EF4444;
+  --spring-red: #C0272D;          /* 中国红 - 烈焰骏马主色 */
+  --spring-gold: #F5C842;         /* 哑光金 */
+  --spring-dark-red: #8B0000;     /* 深酒红 */
+  --spring-light-red: #E84A35;    /* 朱砂橙红 */
+  --spring-deep-brown: #1A0A00;   /* 深沉墨褐 */
+  --spring-ivory: #FFE4B5;        /* 米白绢色 */
+  --spring-burnished-gold: #D4A017; /* 烤漆金 */
 }
 
 /* 打印样式 */

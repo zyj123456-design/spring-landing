@@ -38,7 +38,7 @@ export default function GreetingWall({ greetings }: GreetingWallProps) {
             新春祝福墙
           </h3>
         </div>
-        <p className="text-gray-600 text-sm max-w-md mx-auto">汇聚来自四面八方的美好祝福，共同庆祝龙年新春</p>
+        <p className="text-gray-600 text-sm max-w-md mx-auto">汇聚来自四面八方的美好祝福，共同庆祝马年新春</p>
         <div className="w-20 h-1 bg-gradient-to-r from-transparent via-spring-red to-transparent mx-auto mt-4 rounded-full"></div>
       </div>
 

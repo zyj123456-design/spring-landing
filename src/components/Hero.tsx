@@ -1,12 +1,21 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-br from-spring-dark-red via-spring-red to-spring-gold overflow-hidden">
-      {/* 背景装饰 - 动态烟花效果 */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-firework"></div>
-        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-yellow-300 rounded-full animate-firework" style={{ animationDelay: '0.5s' }}></div>
-        <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-red-200 rounded-full animate-firework" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-orange-300 rounded-full animate-firework" style={{ animationDelay: '1.5s' }}></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-spring-red via-spring-light-red to-spring-gold">
+      {/* 马年背景装饰 */}
+      <div className="absolute inset-0">
+        {/* 动态祥云纹 */}
+        <div className="absolute top-20 left-10 w-40 h-24 bg-gradient-to-r from-spring-ivory/20 to-transparent rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-32 right-20 w-32 h-20 bg-gradient-to-l from-spring-gold/15 to-transparent rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-40 left-20 w-48 h-28 bg-gradient-to-r from-spring-red/10 to-spring-light-red/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+
+        {/* 抽象马鬃流动曲线 */}
+        <div className="absolute top-1/3 left-16 w-2 h-32 bg-gradient-to-b from-transparent via-spring-burnished-gold/30 to-transparent animate-pulse"></div>
+        <div className="absolute top-1/4 right-24 w-2 h-24 bg-gradient-to-b from-transparent via-spring-red/25 to-transparent animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-1/3 left-32 w-2 h-28 bg-gradient-to-b from-transparent via-spring-light-red/20 to-transparent animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+
+        {/* 马蹄金装饰 */}
+        <div className="absolute top-24 right-12 w-8 h-10 bg-gradient-to-b from-spring-burnished-gold to-spring-gold rounded-t-full opacity-60 animate-float"></div>
+        <div className="absolute bottom-32 left-24 w-6 h-8 bg-gradient-to-b from-spring-burnished-gold to-spring-gold rounded-t-full opacity-50 animate-float" style={{ animationDelay: '1s' }}></div>
       </div>
 
       {/* 浮动灯笼装饰 */}
@@ -23,25 +32,39 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-        {/* 主要标题区域 - 现代化设计 */}
-        <div className="backdrop-blur-sm bg-white/10 rounded-3xl p-8 md:p-12 shadow-2xl border border-white/20">
-          <h1 className="text-6xl md:text-8xl font-black text-white mb-6 tracking-wider drop-shadow-2xl">
-            <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 bg-clip-text text-transparent">
-              新春快乐
-            </span>
-          </h1>
+        {/* 主标题 */}
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+          <div className="mb-8">
+            {/* 马年主视觉 */}
+            <div className="relative inline-block mb-6">
+              <div className="text-8xl md:text-9xl font-black text-white drop-shadow-2xl animate-pulse">
+                🐎
+              </div>
+              <div className="absolute inset-0 text-8xl md:text-9xl font-black text-spring-burnished-gold opacity-60 animate-pulse" style={{ animationDelay: '0.5s' }}>
+                🐎
+              </div>
+              {/* 动态光晕 */}
+              <div className="absolute inset-0 bg-gradient-to-r from-spring-burnished-gold to-spring-gold rounded-full opacity-20 blur-2xl animate-pulse"></div>
+            </div>
 
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mx-auto mb-8 rounded-full"></div>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6">
+              <span className="bg-gradient-to-r from-white via-spring-ivory to-spring-burnished-gold bg-clip-text text-transparent drop-shadow-2xl">
+                马年吉祥
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-spring-burnished-gold via-spring-gold to-spring-light-red bg-clip-text text-transparent drop-shadow-2xl">
+                骏马奔腾
+              </span>
+            </h1>
 
-          <p className="text-2xl md:text-4xl font-light text-white mb-6 drop-shadow-lg">
-            技术创新 · <span className="font-bold text-yellow-300">龙年</span>新起点
-          </p>
+            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-spring-burnished-gold to-transparent mx-auto mb-8 rounded-full"></div>
 
-          <p className="text-lg md:text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-            探索我们的软件开发、智能工厂改造和数据主权理念
-            <br />
-            <span className="text-yellow-200 font-medium">让我们一起开启智能化新纪元</span>
-          </p>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/95 mb-8 leading-relaxed drop-shadow-lg max-w-4xl mx-auto">
+              新春马到成功，骏马奔腾四海
+              <br />
+              <span className="text-spring-ivory font-semibold">技术创新 · 马年新起点 · 共创辉煌未来</span>
+            </p>
+          </div>
 
           {/* 操作按钮 - 现代化设计 */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

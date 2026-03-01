@@ -69,7 +69,7 @@ export default function HomePage() {
             新春拜年互动墙
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            发送您的春节祝福，让我们一起迎接龙年的到来！
+            发送您的春节祝福，让我们一起迎接马年的到来！
           </p>
         </div>
 

@@ -18,7 +18,7 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
     setError('');
 
     if (!message.trim()) {
-      setError('请填写拜年信息');
+      setError('请分享您的祝福语，让这个节日更加温暖');
       return;
     }
 
@@ -29,7 +29,7 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
       setSenderName('');
       setError('');
     } else {
-      setError(result.error || '发送失败，请稍后重试');
+      setError(result.error || '祝福发送遇到小困难，请稍后再试');
     }
   };
 
@@ -61,8 +61,8 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
           {/* 发送者姓名 */}
           <div className="group">
             <label htmlFor="senderName" className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <span className="text-spring-red">👤</span>
-              您的姓名（可选）
+              <span className="text-spring-red">�‍👩‍👧‍👦</span>
+              您的尊称（可选）
             </label>
             <div className="relative">
               <input
@@ -70,12 +70,12 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
                 id="senderName"
                 value={senderName}
                 onChange={(e) => setSenderName(e.target.value.slice(0, 20))}
-                placeholder="请输入您的姓名"
+                placeholder="家人朋友怎么称呼您？"
                 className="w-full px-5 py-4 pl-12 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-spring-red/20 focus:border-spring-red transition-all duration-300 bg-white/70 backdrop-blur-sm text-gray-800 placeholder-gray-400"
                 disabled={isLoading}
               />
               <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-spring-red transition-colors">
-                <span className="text-lg">✍️</span>
+                <span className="text-lg">💝</span>
               </div>
             </div>
             <div className="flex justify-between items-center mt-2">
@@ -94,14 +94,14 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
           <div className="group">
             <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
               <span className="text-spring-red">🎊</span>
-              新春祝福语
+              心意祝福语
             </label>
             <div className="relative">
               <textarea
                 id="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value.slice(0, 100))}
-                placeholder="写下您的春节祝福，让这个节日更加温暖..."
+                placeholder="愿您新春快乐，万事如意，阖家幸福，岁岁平安..."
                 rows={5}
                 className={`w-full px-5 py-4 pl-12 border-2 rounded-2xl focus:ring-4 transition-all duration-300 bg-white/70 backdrop-blur-sm text-gray-800 placeholder-gray-400 resize-none ${
                   !isValidLength && messageLength > 0
@@ -111,7 +111,7 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
                 disabled={isLoading}
               />
               <div className="absolute left-4 top-4 text-gray-400 group-focus-within:text-spring-red transition-colors">
-                <span className="text-xl">💝</span>
+                <span className="text-xl">�</span>
               </div>
             </div>
 
@@ -136,15 +136,15 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
                 <div className="flex items-center gap-1 text-xs">
                   {isValidLength ? (
                     <span className="text-green-600 flex items-center gap-1">
-                      <span>✅</span> 长度合适
+                      <span>✅</span> 祝福语完美
                     </span>
                   ) : messageLength < 10 ? (
                     <span className="text-red-600 flex items-center gap-1">
-                      <span>⚠️</span> 至少需要10字符
+                      <span>💝</span> 再加点心意吧
                     </span>
                   ) : (
                     <span className="text-red-600 flex items-center gap-1">
-                      <span>⚠️</span> 超出长度限制
+                      <span>📝</span> 祝福太长了呢
                     </span>
                   )}
                 </div>
@@ -186,7 +186,7 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
               ) : (
                 <>
                   <span className="text-xl">🎊</span>
-                  发送祝福
+                  传递祝福
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </>
               )}
@@ -201,14 +201,14 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
         <div className="mt-8 p-5 bg-gradient-to-r from-spring-red/5 to-gold-50/30 rounded-2xl border-2 border-spring-red/10">
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-spring-red to-spring-gold rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-              <span className="text-white text-lg">💝</span>
+              <span className="text-white text-lg">�‍👩‍👧‍👦</span>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-800 mb-1">温馨提示</h4>
+              <h4 className="font-semibold text-gray-800 mb-1">祝福传递</h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                您的祝福将与其他人的新春祝福一起展示，让我们共同营造欢乐祥和的节日氛围！
+                您的每一句祝福，都像春风一样温暖人心。新春佳节，让我们一起传递这份美好祝愿，共同营造欢乐祥和的节日氛围！
                 <br />
-                <span className="text-spring-red font-medium">每条祝福都承载着新年的美好祝愿 ✨</span>
+                <span className="text-spring-red font-medium">🎊 心意虽轻，祝福绵长 ✨</span>
               </p>
             </div>
           </div>

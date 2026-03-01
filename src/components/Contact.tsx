@@ -135,11 +135,11 @@ export default function Contact() {
                   </h4>
                   <div className="bg-white/15 rounded-2xl p-6 border border-white/20">
                     <p className="text-white text-lg leading-relaxed font-medium drop-shadow-md">
-                      "龙年大吉，技术创新，合作共赢，祝您新春快乐，万事如意！"
+                      "马年吉祥，骏马奔腾，马到成功，马年新起点，祝您新春快乐，万事如意！"
                     </p>
                     <div className="mt-4 pt-4 border-t border-white/20">
                       <p className="text-white/70 text-sm">—— 技术创新团队</p>
-                      <p className="text-yellow-200 text-xs mt-1">2026 · 龙年 · 春节</p>
+                      <p className="text-yellow-200 text-xs mt-1">2026 · 马年 · 春节</p>
                     </div>
                   </div>
                 </div>
