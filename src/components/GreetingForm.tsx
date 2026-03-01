@@ -57,12 +57,12 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
           <p className="text-gray-600 text-sm">分享您的祝福，与大家共庆佳节</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
           {/* 发送者姓名 */}
           <div className="group">
             <label htmlFor="senderName" className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <span className="text-spring-red">�‍👩‍👧‍👦</span>
-              您的尊称（可选）
+              <span className="text-spring-red text-lg">👨‍👩‍👧‍👦</span>
+              <span className="text-sm md:text-base">您的尊称（可选）</span>
             </label>
             <div className="relative">
               <input
@@ -71,14 +71,17 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
                 value={senderName}
                 onChange={(e) => setSenderName(e.target.value.slice(0, 20))}
                 placeholder="家人朋友怎么称呼您？"
-                className="w-full px-5 py-4 pl-12 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-spring-red/20 focus:border-spring-red transition-all duration-300 bg-white/70 backdrop-blur-sm text-gray-800 placeholder-gray-400"
+                autoComplete="name"
+                autoCapitalize="words"
+                autoCorrect="off"
+                className="w-full min-h-[48px] px-4 py-4 pl-12 border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-spring-red/20 focus:border-spring-red transition-all duration-300 bg-white/70 backdrop-blur-sm text-gray-800 placeholder-gray-400 text-base md:text-sm focus:outline-none"
                 disabled={isLoading}
               />
               <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-spring-red transition-colors">
-                <span className="text-lg">💝</span>
+                <span className="text-xl">💝</span>
               </div>
             </div>
-            <div className="flex justify-between items-center mt-2">
+            <div className="flex justify-between items-center mt-2 px-1">
               <p className="text-xs text-gray-500">
                 {senderName.length}/20 字符
               </p>
@@ -93,8 +96,8 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
           {/* 拜年信息 */}
           <div className="group">
             <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-              <span className="text-spring-red">🎊</span>
-              心意祝福语
+              <span className="text-spring-red text-lg">🎊</span>
+              <span className="text-sm md:text-base">心意祝福语</span>
             </label>
             <div className="relative">
               <textarea
@@ -102,49 +105,48 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
                 value={message}
                 onChange={(e) => setMessage(e.target.value.slice(0, 100))}
                 placeholder="愿您新春快乐，万事如意，阖家幸福，岁岁平安..."
-                rows={5}
-                className={`w-full px-5 py-4 pl-12 border-2 rounded-2xl focus:ring-4 transition-all duration-300 bg-white/70 backdrop-blur-sm text-gray-800 placeholder-gray-400 resize-none ${
+                rows={4}
+                autoComplete="off"
+                autoCapitalize="sentences"
+                autoCorrect="on"
+                spellCheck="true"
+                className={`w-full min-h-[120px] px-4 py-4 pl-12 border-2 rounded-2xl transition-all duration-300 bg-white/70 backdrop-blur-sm text-gray-800 placeholder-gray-400 text-base resize-none focus:outline-none ${
                   !isValidLength && messageLength > 0
                     ? 'border-red-300 focus:ring-red-100 focus:border-red-400'
-                    : 'border-gray-200 focus:ring-spring-red/20 focus:border-spring-red'
+                    : 'border-gray-200 focus:ring-spring-red/20 focus:border-spring-red focus:ring-4'
                 }`}
                 disabled={isLoading}
+                style={{ fontSize: '16px' }} // 防止iOS缩放
               />
               <div className="absolute left-4 top-4 text-gray-400 group-focus-within:text-spring-red transition-colors">
-                <span className="text-xl">�</span>
+                <span className="text-xl">💌</span>
               </div>
             </div>
 
             {/* 字符计数和验证 */}
-            <div className="flex justify-between items-center mt-3">
+            <div className="flex justify-between items-center mt-3 px-1">
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full transition-colors ${
                   messageLength === 0 ? 'bg-gray-300' :
                   messageLength < 10 ? 'bg-red-400' :
                   messageLength <= 100 ? 'bg-green-400' : 'bg-red-400'
                 }`}></div>
-                <p className={`text-xs font-medium ${
-                  messageLength === 0 ? 'text-gray-500' :
-                  isValidLength ? 'text-green-600' :
-                  'text-red-600'
-                }`}>
-                  {messageLength}/100 字符
-                </p>
+                <span className="text-xs text-gray-600">{messageLength}/100</span>
               </div>
 
               {messageLength > 0 && (
                 <div className="flex items-center gap-1 text-xs">
                   {isValidLength ? (
                     <span className="text-green-600 flex items-center gap-1">
-                      <span>✅</span> 祝福语完美
+                      <span>✅</span> 祝福完美
                     </span>
                   ) : messageLength < 10 ? (
                     <span className="text-red-600 flex items-center gap-1">
-                      <span>💝</span> 再加点心意吧
+                      <span>💝</span> 再加点心意
                     </span>
                   ) : (
                     <span className="text-red-600 flex items-center gap-1">
-                      <span>📝</span> 祝福太长了呢
+                      <span>📝</span> 祝福太长啦
                     </span>
                   )}
                 </div>
@@ -164,35 +166,33 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
             </div>
           )}
 
-          {/* 提交按钮 */}
+          {/* 提交按钮 - 移动端优化 */}
           <button
             type="submit"
-            disabled={isLoading || !isValidLength}
-            className={`group relative w-full py-4 px-8 rounded-2xl font-bold text-lg transition-all duration-300 overflow-hidden ${
-              isLoading || !isValidLength
-                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                : 'bg-gradient-to-r from-spring-red to-spring-dark-red text-white shadow-xl hover:shadow-2xl hover:shadow-spring-red/30 transform hover:scale-[1.02] active:scale-[0.98]'
+            disabled={!isValidLength || isLoading}
+            className={`w-full min-h-[56px] px-6 py-4 rounded-2xl font-bold text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 ${
+              !isValidLength
+                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                : isLoading
+                ? 'bg-gradient-to-r from-blue-400 to-blue-600 text-white shadow-lg'
+                : 'bg-gradient-to-r from-spring-red to-spring-light-red text-white shadow-xl hover:shadow-2xl transform hover:scale-105'
             }`}
+            aria-label={isLoading ? '正在传递祝福...' : '传递祝福'}
           >
-            <span className="relative z-10 flex items-center justify-center gap-3">
-              {isLoading ? (
-                <>
-                  <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  发送祝福中...
-                </>
-              ) : (
-                <>
-                  <span className="text-xl">🎊</span>
-                  传递祝福
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </>
-              )}
-            </span>
-            {!isLoading && isValidLength && (
-              <div className="absolute inset-0 bg-gradient-to-r from-spring-dark-red to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            {isLoading ? (
+              <span className="flex items-center justify-center gap-3">
+                <svg className="animate-spin h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>正在传递祝福...</span>
+              </span>
+            ) : (
+              <span className="flex items-center justify-center gap-3">
+                <span className="text-2xl">🎊</span>
+                <span>传递祝福</span>
+                <span className="transition-transform text-xl group-hover:translate-x-1">💫</span>
+              </span>
             )}
           </button>
         </form>
