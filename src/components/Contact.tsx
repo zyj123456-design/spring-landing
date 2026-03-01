@@ -102,18 +102,19 @@ export default function Contact() {
         {/* 标题区域 */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-3xl flex items-center justify-center shadow-xl">
-              <span className="text-4xl">📞</span>
+            <div className="w-16 h-16 bg-gradient-to-br from-spring-red to-spring-gold rounded-3xl flex items-center justify-center shadow-xl warm-gold-glow">
+              <span className="text-4xl">�</span>
+              <span className="text-4xl">�📞</span>
             </div>
-            <h2 className="text-5xl font-black bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-black hot-stamping drop-shadow-2xl">
               联系我们
             </h2>
           </div>
-          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mx-auto mb-6 rounded-full"></div>
+          <div className="w-32 h-1 gold-foil-texture mx-auto mb-6 rounded-full"></div>
           <p className="text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed drop-shadow-lg">
             春节合作热线，新年新气象，共创美好未来
             <br />
-            <span className="text-yellow-200 font-semibold">让我们一起开启智能化新纪元 ✨</span>
+            <span className="text-spring-ivory font-semibold candle-glow px-4 py-2 rounded-lg">让我们一起开启智能化新纪元 ✨</span>
           </p>
         </div>
 

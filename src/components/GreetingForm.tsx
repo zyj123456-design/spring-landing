@@ -38,61 +38,56 @@ export default function GreetingForm({ onSubmit, isLoading }: GreetingFormProps)
 
   return (
     <div id="greetings" className="relative">
-      {/* 春节视觉装饰 - 多层次布局 */}
+      {/* 春节视觉盛宴 - 烈焰骏马主题一致性 */}
       <div className="absolute inset-0">
-        {/* 第一层：祥云纹理背景 */}
-        <div className="absolute top-8 right-8 w-24 h-16 bg-gradient-to-br from-spring-ivory/15 to-transparent rounded-full blur-lg animate-pulse"></div>
-        <div className="absolute bottom-12 left-12 w-20 h-14 bg-gradient-to-tr from-spring-gold/10 to-transparent rounded-full blur-md animate-pulse" style={{ animationDelay: '1s' }}></div>
+        {/* 第一层：宣纸质感背景 */}
+        <div className="absolute inset-0 rice-paper-texture"></div>
 
-        {/* 第二层：传统窗花装饰 */}
-        <div className="absolute top-4 left-4 opacity-15">
-          <svg width="40" height="40" viewBox="0 0 40 40" className="animate-pulse">
-            <path d="M20,5 L25,15 L35,15 L28,22 L31,32 L20,26 L9,32 L12,22 L5,15 L15,15 Z" fill="#DC2626" stroke="#F59E0B" strokeWidth="1"/>
-            <circle cx="20" cy="20" r="8" fill="none" stroke="#DC2626" strokeWidth="2"/>
-            <circle cx="20" cy="20" r="3" fill="#F59E0B"/>
-          </svg>
-        </div>
+        {/* 第二层：剪纸风奔马装饰 */}
+        <div className="absolute top-3 left-4 w-16 h-12 horse-paper-cut opacity-15 animate-horse-gallop"></div>
+        <div className="absolute bottom-4 right-6 w-14 h-10 horse-paper-cut opacity-10 animate-horse-gallop" style={{ animationDelay: '1s' }}></div>
 
-        <div className="absolute top-6 right-6 opacity-15">
-          <svg width="35" height="35" viewBox="0 0 35 35" className="animate-pulse" style={{ animationDelay: '0.5s' }}>
-            <path d="M17.5,5 L22,12 L30,12 L24,17 L26.5,25 L17.5,20 L8.5,25 L11,17 L5,12 L13,12 Z" fill="#8B0000" stroke="#F59E0B" strokeWidth="1"/>
-            <rect x="15" y="15" width="5" height="5" fill="#F59E0B"/>
-          </svg>
-        </div>
+        {/* 第三层：线描马纹背景 */}
+        <div className="absolute inset-0 horse-line-pattern opacity-3"></div>
 
-        {/* 第三层：飘落的桃花瓣 */}
-        <div className="absolute top-16 left-8 animate-float opacity-30">
-          <svg width="20" height="20" viewBox="0 0 20 20">
-            <path d="M10,2 Q12,8 18,10 Q12,12 10,18 Q8,12 2,10 Q8,8 10,2" fill="#E84A35" stroke="#DC2626" strokeWidth="0.5"/>
-          </svg>
-        </div>
+        {/* 第四层：抽象马鬃装饰 */}
+        <div className="absolute top-20 left-8 w-1 h-16 bg-gradient-to-b from-transparent via-spring-burnished-gold/20 to-transparent animate-pulse horse-mane-flow"></div>
+        <div className="absolute bottom-16 right-12 w-1 h-14 bg-gradient-to-b from-transparent via-spring-red/15 to-transparent animate-pulse horse-mane-flow" style={{ animationDelay: '1.5s' }}></div>
 
-        <div className="absolute top-24 right-12 animate-float opacity-25" style={{ animationDelay: '1.5s' }}>
+        {/* 第五层：飘落的梅花瓣 */}
+        <div className="absolute top-16 left-8 animate-float opacity-25">
           <svg width="16" height="16" viewBox="0 0 16 16">
-            <path d="M8,1 Q9,6 14,8 Q9,10 8,15 Q7,10 2,8 Q7,6 8,1" fill="#F5C842" stroke="#D4A017" strokeWidth="0.5"/>
+            <path d="M8,1 Q9,5 14,8 Q9,11 8,15 Q7,11 2,8 Q7,5 8,1" fill="#C0272D" stroke="#8B0000" strokeWidth="0.3"/>
+            <circle cx="8" cy="8" r="2" fill="#F5C842"/>
           </svg>
         </div>
 
-        <div className="absolute bottom-20 left-16 animate-float opacity-20" style={{ animationDelay: '3s' }}>
+        <div className="absolute top-24 right-12 animate-float opacity-20" style={{ animationDelay: '1.5s' }}>
+          <svg width="14" height="14" viewBox="0 0 14 14">
+            <path d="M7,1 Q8,4 12,7 Q8,10 7,13 Q6,10 2,7 Q6,4 7,1" fill="#F5C842" stroke="#D4A017" strokeWidth="0.3"/>
+            <circle cx="7" cy="7" r="1.5" fill="#FFE4B5"/>
+          </svg>
+        </div>
+
+        <div className="absolute bottom-20 left-16 animate-float opacity-15" style={{ animationDelay: '3s' }}>
           <svg width="18" height="18" viewBox="0 0 18 18">
-            <path d="M9,1 Q10,7 16,9 Q10,11 9,17 Q8,11 2,9 Q8,7 9,1" fill="#FFE4B5" stroke="#F5C842" strokeWidth="0.5"/>
+            <path d="M9,1 Q10,7 16,9 Q10,11 9,17 Q8,11 2,9 Q8,7 9,1" fill="#FFE4B5" stroke="#F5C842" strokeWidth="0.3"/>
           </svg>
         </div>
 
-        {/* 第四层：传统纹样边框 */}
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-spring-red/20 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-spring-gold/15 to-transparent"></div>
-        <div className="absolute left-0 top-0 w-2 h-full bg-gradient-to-b from-transparent via-spring-red/20 to-transparent"></div>
-        <div className="absolute right-0 top-0 w-2 h-full bg-gradient-to-b from-transparent via-spring-gold/15 to-transparent"></div>
+        {/* 第六层：传统纹样边框 */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-spring-red/15 to-transparent rounded-full"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-spring-gold/10 to-transparent rounded-full"></div>
+        <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-transparent via-spring-red/15 to-transparent"></div>
+        <div className="absolute right-0 top-0 w-1 h-full bg-gradient-to-b from-transparent via-spring-gold/10 to-transparent"></div>
       </div>
-      <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-red-400 to-orange-500 rounded-full opacity-60 animate-pulse"></div>
-      <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-gold-400 to-yellow-500 rounded-full opacity-70 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
 
       <div className="relative backdrop-blur-sm bg-white/80 rounded-3xl shadow-2xl p-8 md:p-10 border border-white/50">
         {/* 标题区域 */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-spring-red to-spring-gold rounded-2xl flex items-center justify-center shadow-lg">
+              <span className="text-2xl">🐴</span>
               <span className="text-2xl">💌</span>
             </div>
             <h3 className="text-3xl font-bold bg-gradient-to-r from-spring-dark-red to-spring-gold bg-clip-text text-transparent">

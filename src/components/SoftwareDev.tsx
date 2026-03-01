@@ -1,33 +1,31 @@
 export default function SoftwareDev() {
   return (
     <section className="relative py-20 px-4 bg-gradient-to-br from-blue-50 via-indigo-50/30 to-cyan-50/20 overflow-hidden">
-      {/* 春节视觉盛宴 - 科技主题装饰 */}
+      {/* 春节视觉盛宴 - 烈焰骏马科技主题 */}
       <div className="absolute inset-0">
-        {/* 第一层：代码祥云纹理 */}
-        <div className="absolute top-12 right-16 w-40 h-28 bg-gradient-to-l from-blue-200/15 to-transparent rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-16 left-12 w-36 h-24 bg-gradient-to-r from-indigo-200/10 to-transparent rounded-full blur-lg animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 right-1/4 w-32 h-20 bg-gradient-to-bl from-cyan-300/8 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        {/* 第一层：宣纸质感背景 */}
+        <div className="absolute inset-0 rice-paper-texture"></div>
 
         {/* 第二层：代码灯笼装饰 */}
         <div className="absolute top-16 left-8 animate-lantern">
           <div className="relative">
-            <div className="w-14 h-18 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full shadow-lg border-2 border-gold-400">
-              <div className="w-9 h-10 bg-yellow-300 rounded-full mx-auto mt-1 opacity-90 animate-pulse"></div>
+            <div className="w-12 h-16 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full shadow-lg border-2 border-gold-400">
+              <div className="w-8 h-9 bg-yellow-300 rounded-full mx-auto mt-1 opacity-90 animate-pulse"></div>
               <div className="text-center text-blue-800 font-bold text-xs mt-1">码</div>
             </div>
-            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-blue-600 rounded-full"></div>
-            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-blue-600 rounded-full"></div>
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-14 h-1.5 bg-blue-600 rounded-full"></div>
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-14 h-1.5 bg-blue-600 rounded-full"></div>
           </div>
         </div>
 
         <div className="absolute bottom-20 right-12 animate-lantern" style={{ animationDelay: '1.5s' }}>
           <div className="relative">
-            <div className="w-12 h-16 bg-gradient-to-b from-indigo-500 to-indigo-700 rounded-full shadow-lg border-2 border-gold-400">
-              <div className="w-8 h-9 bg-yellow-200 rounded-full mx-auto mt-1 opacity-90 animate-pulse"></div>
-              <div className="text-center text-indigo-800 font-bold text-xs mt-1">智</div>
+            <div className="w-10 h-14 bg-gradient-to-b from-indigo-500 to-indigo-700 rounded-full shadow-lg border-2 border-gold-400">
+              <div className="w-7 h-8 bg-yellow-200 rounded-full mx-auto mt-1 opacity-90 animate-pulse"></div>
+              <div className="text-center text-indigo-800 font-bold text-xs mt-0.5">智</div>
             </div>
-            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-14 h-1.5 bg-indigo-600 rounded-full"></div>
-            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-14 h-1.5 bg-indigo-600 rounded-full"></div>
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-12 h-1.5 bg-indigo-600 rounded-full"></div>
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-1.5 bg-indigo-600 rounded-full"></div>
           </div>
         </div>
 
@@ -49,7 +47,7 @@ export default function SoftwareDev() {
         </div>
 
         {/* 第四层：科技对联装饰 */}
-        <div className="absolute top-1/4 left-4 transform -rotate-6 opacity-15">
+        <div className="absolute top-1/4 left-4 transform -rotate-6 opacity-12">
           <div className="bg-gradient-to-b from-blue-600 to-blue-800 text-white px-2 py-4 rounded-md shadow-md border border-gold-400">
             <div className="text-xs font-bold writing-vertical">技</div>
             <div className="text-xs font-bold writing-vertical mt-0.5">术</div>
@@ -58,7 +56,7 @@ export default function SoftwareDev() {
           </div>
         </div>
 
-        <div className="absolute bottom-1/4 right-6 transform rotate-6 opacity-15">
+        <div className="absolute bottom-1/4 right-6 transform rotate-6 opacity-12">
           <div className="bg-gradient-to-b from-indigo-600 to-indigo-800 text-white px-2 py-4 rounded-md shadow-md border border-gold-400">
             <div className="text-xs font-bold writing-vertical">代</div>
             <div className="text-xs font-bold writing-vertical mt-0.5">码</div>
@@ -85,13 +83,13 @@ export default function SoftwareDev() {
         </div>
 
         {/* 第六层：科技吉祥图案 */}
-        <div className="absolute top-8 left-1/3 opacity-8">
-          <svg width="50" height="50" viewBox="0 0 50 50" className="animate-pulse">
-            <circle cx="25" cy="25" r="20" fill="none" stroke="#3B82F6" strokeWidth="2"/>
-            <path d="M15,25 Q25,10 35,25 Q25,40 15,25" fill="#06B6D4" stroke="#3B82F6" strokeWidth="1"/>
-            <circle cx="25" cy="20" r="3" fill="#3B82F6"/>
-            <circle cx="25" cy="30" r="3" fill="#06B6D4"/>
-            <text x="25" y="45" textAnchor="middle" fill="#F59E0B" fontSize="8" fontWeight="bold">码</text>
+        <div className="absolute top-8 left-1/3 opacity-6">
+          <svg width="40" height="40" viewBox="0 0 40 40" className="animate-pulse">
+            <circle cx="20" cy="20" r="16" fill="none" stroke="#3B82F6" strokeWidth="2"/>
+            <path d="M12,20 Q20,8 28,20 Q20,32 12,20" fill="#06B6D4" stroke="#3B82F6" strokeWidth="1"/>
+            <circle cx="20" cy="16" r="2.5" fill="#3B82F6"/>
+            <circle cx="20" cy="24" r="2.5" fill="#06B6D4"/>
+            <text x="20" y="35" textAnchor="middle" fill="#F5C842" fontSize="6" fontWeight="bold">码</text>
           </svg>
         </div>
 

@@ -1,18 +1,103 @@
 export default function FactoryIntelligence() {
   return (
-    <section className="relative py-20 px-4 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 overflow-hidden">
-      {/* 背景装饰 - 工业科技风格 */}
+    <section className="relative py-20 px-4 bg-gradient-to-br from-gray-50 via-slate-50/30 to-zinc-50/20 overflow-hidden">
+      {/* 春节视觉盛宴 - 烈焰骏马工业主题 */}
       <div className="absolute inset-0">
-        <div className="absolute top-16 left-8 w-24 h-24 bg-gradient-to-br from-blue-400/10 to-transparent rounded-full blur-lg"></div>
-        <div className="absolute bottom-16 right-8 w-32 h-32 bg-gradient-to-br from-indigo-400/10 to-transparent rounded-full blur-lg"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-br from-spring-red/5 to-blue-400/5 rounded-full blur-xl"></div>
+        {/* 第一层：宣纸质感背景 */}
+        <div className="absolute inset-0 rice-paper-texture"></div>
 
-        {/* 科技网格背景 */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg fill='%23000000' fill-opacity='0.1'%3e%3ccircle cx='30' cy='30' r='1.5'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e")`
-          }}></div>
+        {/* 第二层：工业灯笼装饰 */}
+        <div className="absolute top-16 right-8 animate-lantern">
+          <div className="relative">
+            <div className="w-14 h-18 bg-gradient-to-b from-gray-500 to-gray-700 rounded-full shadow-lg border-2 border-gold-400">
+              <div className="w-9 h-10 bg-yellow-300 rounded-full mx-auto mt-1 opacity-90 animate-pulse"></div>
+              <div className="text-center text-gray-800 font-bold text-xs mt-1">智</div>
+            </div>
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-gray-600 rounded-full"></div>
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-1.5 bg-gray-600 rounded-full"></div>
+          </div>
         </div>
+
+        <div className="absolute bottom-20 left-12 animate-lantern" style={{ animationDelay: '1.5s' }}>
+          <div className="relative">
+            <div className="w-12 h-16 bg-gradient-to-b from-slate-500 to-slate-700 rounded-full shadow-lg border-2 border-gold-400">
+              <div className="w-8 h-9 bg-yellow-200 rounded-full mx-auto mt-1 opacity-90 animate-pulse"></div>
+              <div className="text-center text-slate-800 font-bold text-xs mt-1">造</div>
+            </div>
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-14 h-1.5 bg-slate-600 rounded-full"></div>
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-14 h-1.5 bg-slate-600 rounded-full"></div>
+          </div>
+        </div>
+
+        {/* 第三层：工业火花效果 */}
+        <div className="absolute top-20 left-1/3">
+          <div className="relative">
+            <div className="w-3 h-3 bg-gray-400 rounded-full animate-firework opacity-70"></div>
+            <div className="absolute inset-0 w-6 h-6 border-2 border-gray-300 rounded-full animate-ping opacity-50"></div>
+            <div className="absolute inset-0 w-8 h-8 border border-slate-400 rounded-full animate-pulse opacity-30" style={{ animationDelay: '0.5s' }}></div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-16 right-1/3">
+          <div className="relative">
+            <div className="w-2.5 h-2.5 bg-zinc-400 rounded-full animate-firework opacity-60" style={{ animationDelay: '1.5s' }}></div>
+            <div className="absolute inset-0 w-5 h-5 border-2 border-zinc-300 rounded-full animate-ping opacity-40"></div>
+            <div className="absolute inset-0 w-7 h-7 border border-gray-400 rounded-full animate-pulse opacity-25" style={{ animationDelay: '2s' }}></div>
+          </div>
+        </div>
+
+        {/* 第四层：工业对联装饰 */}
+        <div className="absolute top-1/4 right-4 transform rotate-3 opacity-12">
+          <div className="bg-gradient-to-b from-gray-600 to-gray-800 text-white px-2 py-4 rounded-md shadow-md border border-gold-400">
+            <div className="text-xs font-bold writing-vertical">工</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">业</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">智</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">能</div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-1/4 left-6 transform -rotate-3 opacity-12">
+          <div className="bg-gradient-to-b from-slate-600 to-slate-800 text-white px-2 py-4 rounded-md shadow-md border border-gold-400">
+            <div className="text-xs font-bold writing-vertical">自</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">动</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">化</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">未</div>
+            <div className="text-xs font-bold writing-vertical mt-0.5">来</div>
+          </div>
+        </div>
+
+        {/* 第五层：飘落的齿轮和电路板 */}
+        <div className="absolute top-24 right-20 animate-float opacity-25">
+          <div className="relative">
+            <div className="w-7 h-7 bg-gradient-to-b from-gray-500 to-gray-700 rounded-full shadow-md border border-gold-400 flex items-center justify-center">
+              <span className="text-gold-800 font-bold text-sm">⚙️</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-28 left-16 animate-float opacity-20" style={{ animationDelay: '2s' }}>
+          <div className="relative">
+            <div className="w-6 h-8 bg-gradient-to-b from-slate-500 to-slate-700 rounded-sm shadow-md border border-gold-400 flex items-center justify-center">
+              <span className="text-gold-800 font-bold text-xs">🔌</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 第六层：工业吉祥图案 */}
+        <div className="absolute top-8 right-1/3 opacity-6">
+          <svg width="45" height="45" viewBox="0 0 45 45" className="animate-pulse">
+            <circle cx="22.5" cy="22.5" r="18" fill="none" stroke="#6B7280" strokeWidth="2"/>
+            <path d="M13.5,22.5 Q22.5,9 31.5,22.5 Q22.5,36 13.5,22.5" fill="#64748B" stroke="#6B7280" strokeWidth="1"/>
+            <circle cx="22.5" cy="18" r="2.5" fill="#6B7280"/>
+            <circle cx="22.5" cy="27" r="2.5" fill="#64748B"/>
+            <text x="22.5" y="40" textAnchor="middle" fill="#F5C842" fontSize="7" fontWeight="bold">工</text>
+          </svg>
+        </div>
+
+        {/* 第七层：动态工业流光 */}
+        <div className="absolute top-1/6 left-1/6 w-px h-14 bg-gradient-to-b from-transparent via-gray-400 to-transparent animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/5 w-px h-16 bg-gradient-to-b from-transparent via-slate-400 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/5 left-2/3 w-px h-18 bg-gradient-to-b from-transparent via-zinc-400 to-transparent animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto">
